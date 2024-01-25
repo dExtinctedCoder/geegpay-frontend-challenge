@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import ThemeProvider from '../components/context/themeContext.tsx'
 import DashboardHome from './dashboard'
 import Analytics from './analytics'
 import Customers from './customers'
@@ -5,8 +7,10 @@ import Products from './products'
 import Discount from './discount'
 import Help from './help'
 import Settings from './settings'
+import Notifications from './notifications'
 import Logout from './logout'
 import Sidebar from '../components/dashboard/sidebar'
+import Searchbar from '../components/dashboard/searchbar'
 
 interface PropsType {
   Component: string
@@ -35,6 +39,9 @@ const MainBar = ({ Component }: PropsType) => {
     case 'settings':
       return <Settings />
 
+    case 'notifications':
+      return <Notifications />
+
     case 'logout':
       return <Logout />
 
@@ -44,15 +51,24 @@ const MainBar = ({ Component }: PropsType) => {
 }
 
 function Dashboard({ Component }: PropsType) {
+
+  // const { theme, setAppTheme } = useContext(ThemeContext)
+  const [theme, setAppTheme] = useState("light")
+
   return (
-    <div>
-      <section>
-        <Sidebar />
-      </section>
-      <section>
-        <MainBar Component={Component} />
-      </section>
-    </div>
+    <ThemeProvider>
+      <div className={`${theme === 'light' ? 'bg-[#F7F8FA] text-[#26282C]' : 'bg-gray-900 text-white'} overflow-y-hidden h-screen grid grid-cols-[100px_1fr]`}>
+        <section className="overflow-y-scroll small-scroll h-screen">
+          <Sidebar theme={theme} setTheme={setAppTheme} />
+        </section>
+        <section className="overflow-y-scroll no-scroll h-screen">
+          <div className={`min-h-screen bg-none`}>
+            <Searchbar theme={theme} setTheme={setAppTheme} />
+            <MainBar Component={Component} />
+          </div>
+        </section>
+      </div>
+    </ThemeProvider>
   )
 }
 
