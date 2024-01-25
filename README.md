@@ -66,7 +66,7 @@ To run the dashboard locally, make sure you have [Node.js](https://nodejs.org/) 
    yarn dev
    ```
 
-5. Open your browser and visit [http://localhost:3000](http://localhost:3000).
+5. Open your browser and visit [http://localhost:5173](http://localhost:5173).
 
 ## Usage
 
@@ -85,4 +85,4 @@ To run the dashboard locally, make sure you have [Node.js](https://nodejs.org/) 
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed under the [MIT License](LICENSE).
