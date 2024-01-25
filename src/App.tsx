@@ -13,6 +13,7 @@ function App() {
         <Route path="/discount" element={<Dashboard Component='discount' />} />
         <Route path="/help" element={<Dashboard Component='help' />} />
         <Route path="/settings" element={<Dashboard Component='settings' />} />
+        <Route path="/notifications" element={<Dashboard Component='notifications' />} />
         <Route path="/logout" element={<Dashboard Component='logout' />} />
         <Route path="*" Component={Errorpage} />
       </Routes>
