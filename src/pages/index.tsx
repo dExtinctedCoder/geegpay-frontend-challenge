@@ -51,20 +51,18 @@ const MainBar = ({ Component }: PropsType) => {
 }
 
 function Dashboard({ Component }: PropsType) {
-
-  // const { theme, setAppTheme } = useContext(ThemeContext)
   const [theme, setAppTheme] = useState("light")
 
   return (
     <ThemeProvider>
-      <div className={`${theme === 'light' ? 'bg-[#F7F8FA] text-[#26282C]' : 'bg-gray-900 text-white'} overflow-y-hidden h-screen grid grid-cols-[100px_1fr]`}>
+      <div className={`bg-[#F7F8FA] text-[#26282C] dark:bg-gray-900 dark:text-white overflow-y-hidden h-screen grid grid-cols-[100px_1fr]`}>
         <section className="overflow-y-scroll small-scroll h-screen">
           <Sidebar theme={theme} setTheme={setAppTheme} />
         </section>
         <section className="overflow-y-scroll no-scroll h-screen">
           <div className={`min-h-screen bg-none`}>
             <Searchbar theme={theme} setTheme={setAppTheme} />
-            <MainBar Component={Component} />
+            <MainBar theme={theme} Component={Component} />
           </div>
         </section>
       </div>

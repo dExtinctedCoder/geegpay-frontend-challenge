@@ -6,17 +6,13 @@ import TOTALREFUNDICON from '../assets/icons/3d-rotate.png'
 import TOTALINCOMEICON from '../assets/icons/coin.png'
 import AVRSALESICON from '../assets/icons/shopping-cart.png'
 
-interface PropsType {
-  theme?: string
-}
-
-function Dashboard({ theme }: PropsType) {
+function Dashboard() {
   return (
     <div className="px-8 grid grid-cols-[3fr_2fr] gap-x-8">
       <div className="flex flex-col gap-y-10 pt-6 pb-10">
         <section className="w-full aspect-video bg-gray-300 rounded-2xl"></section>
         <section className={`rounded-2xl dark:bg-gray-800 bg-white px-8 py-4`}>
-          <RecentOrders theme={theme} />
+          <RecentOrders />
         </section>
       </div>
       <div className="flex flex-col gap-y-10 pt-6 pb-10">
