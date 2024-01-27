@@ -13,22 +13,19 @@ import INFO from '../../assets/icons/info-circle.png'
 import LOGO from '../../assets/images/Vectorlogo.png'
 import SUN from '../../assets/icons/sun.png'
 import MOON from '../../assets/icons/moon.png'
+import useDarkMode from '@/utils/hooks'
 
-interface PropsType {
-  theme: string
-  setTheme: React.Dispatch<React.SetStateAction<string>>
-}
-
-function Sidebar({ theme, setTheme }: PropsType) {
+function Sidebar() {
+  const [toggleDarkMode] = useDarkMode()
 
   return (
-    <aside className={`${theme === 'light' ? 'bg-[#F7F8FA] text-[#26282C]' : 'bg-gray-900 text-white'} min-h-screen py-2 pb-12 flex flex-col items-center gap-y-32`}>
+    <aside className={`bg-[#F7F8FA] text-[#26282C] dark:bg-gray-900 dark:text-white min-h-screen py-2 pb-12 flex flex-col items-center gap-y-32`}>
       <nav className="w-full flex flex-col items-center gap-y-2">
         <Link className="items-center nav-link w-full border-l-[8px] border-transparent flex justify-center py-3" to="/">
           <img width={40} height={40} src={LOGO} alt="IMG-LOGO" />
         </Link>
         <NavLink className="items-center nav-link w-full border-l-[8px] border-transparent flex justify-center py-3" to="/">
-          <img className={`${theme === 'dark' ? 'invert' : 'invert-0'}`} width={32} height={32} src={DASHBOARD} alt="IMG-DASHBOARD" />
+          <img className={`dark:invert invert-0`} width={32} height={32} src={DASHBOARD} alt="IMG-DASHBOARD" />
         </NavLink>
         <NavLink className="items-center nav-link w-full border-l-[8px] border-transparent flex justify-center py-3" to="/analytics">
           <img width={32} height={32} src={ANALYTICS} alt="IMG-ANALYTICS" />
@@ -46,11 +43,11 @@ function Sidebar({ theme, setTheme }: PropsType) {
           <img width={32} height={32} src={INFO} alt="IMG-HELP" />
         </NavLink>
         <div className="flex flex-col items-center gap-y-4 bg-white rounded-3xl px-2 py-2">
-          <button onClick={() => setTheme("light")} className={`w-[40px] aspect-square flex items-center justify-center rounded-full ${theme === 'light' ? 'bg-[#34CAA5]' : 'bg-white'}`}>
-            <img className={`${theme === 'light' ? 'w-[32px] height-[32px] invert-0' : 'w-[30px] h-[30px] invert'}`} width={30} height={30} src={SUN} alt="IMG-SUN" />
+          <button onClick={() => toggleDarkMode(false)} className={`w-[40px] aspect-square flex items-center justify-center rounded-full bg-[#34CAA5] dark:bg-white`}>
+            <img className={`w-[32px] height-[32px] invert-0 dark:w-[30px] dark:h-[30px] dark:invert`} width={30} height={30} src={SUN} alt="IMG-SUN" />
           </button>
-          <button onClick={() => setTheme("dark")} className={`w-[40px] aspect-square flex items-center justify-center rounded-full ${theme === 'dark' ? 'bg-[#34CAA5]' : 'bg-white'}`}>
-            <img className={`${theme === 'dark' ? 'w-[32px] height-[32px] invert' : 'w-[30px] h-[30px]'}`} width={30} height={30} src={MOON} alt="IMG-MOON" />
+          <button onClick={() => toggleDarkMode(true)} className={`w-[40px] aspect-square flex items-center justify-center rounded-full dark:bg-[#34CAA5] bg-white`}>
+            <img className={`dark:w-[32px] dark:height-[32px] dark:invert w-[30px] h-[30px]`} width={30} height={30} src={MOON} alt="IMG-MOON" />
           </button>
         </div>
       </nav>
