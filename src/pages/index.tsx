@@ -1,4 +1,3 @@
-import ThemeProvider from '../components/context/themeContext.tsx'
 import DashboardHome from './dashboard'
 import Analytics from './analytics'
 import Customers from './customers'
@@ -51,19 +50,17 @@ const MainBar = ({ Component }: PropsType) => {
 
 function Dashboard({ Component }: PropsType) {
   return (
-    <ThemeProvider>
-      <div className={`bg-[#F7F8FA] text-[#454951] dark:bg-gray-900 dark:text-white overflow-y-hidden h-screen grid lg:grid-cols-[100px_1fr]`}>
-        <section className="overflow-y-scroll hidden lg:block small-scroll h-screen">
-          <Sidebar />
-        </section>
-        <section className="overflow-y-scroll no-scroll h-screen">
-          <div className={`min-h-screen bg-none`}>
-            <Searchbar />
-            <MainBar Component={Component} />
-          </div>
-        </section>
-      </div>
-    </ThemeProvider>
+    <div className={`bg-[#F7F8FA] text-[#454951] dark:bg-gray-900 dark:text-white overflow-y-hidden h-screen grid lg:grid-cols-[100px_1fr]`}>
+      <section className="overflow-y-scroll hidden lg:block small-scroll h-screen">
+        <Sidebar />
+      </section>
+      <section className="overflow-y-scroll no-scroll h-screen">
+        <div className={`min-h-screen bg-none`}>
+          <Searchbar />
+          <MainBar Component={Component} />
+        </div>
+      </section>
+    </div>
   )
 }
 
