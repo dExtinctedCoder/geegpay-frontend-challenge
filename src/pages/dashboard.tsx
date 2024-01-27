@@ -5,14 +5,21 @@ import TOTALORDERICON from '../assets/icons/box-tick.png'
 import TOTALREFUNDICON from '../assets/icons/3d-rotate.png'
 import TOTALINCOMEICON from '../assets/icons/coin.png'
 import AVRSALESICON from '../assets/icons/shopping-cart.png'
-import CHART from '../assets/images/chart.png'
+import { Chart } from '@/components/dashboard/chart'
 
 function Dashboard() {
   return (
     <div className="px-8 grid lg:grid-cols-[3fr_2fr] gap-x-8">
       <div className="flex flex-col gap-y-10 pt-6 pb-10">
-        <section style={{ backgroundImage: `url(${CHART})`, backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat' }} className="w-full aspect-video rounded-2xl">
-          <img src={CHART} alt="IMG-CHART" className="" />
+        <section className={`rounded-2xl dark:bg-gray-800 bg-white px-1 py-4`}>
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="font-semibold text-lg">Sales Trend</h4>
+            <div className="text-lg flex items-center gap-x-2 font-medium hover:underline hover:text-green-500">
+              Sort: by
+              <div>weekly</div>
+            </div>
+          </div>
+          <Chart />
         </section>
         <section className={`rounded-2xl dark:bg-gray-800 bg-white px-8 py-4`}>
           <RecentOrders />

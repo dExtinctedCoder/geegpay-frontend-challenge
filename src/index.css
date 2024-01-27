@@ -33,4 +33,10 @@
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
   }
+  @page {
+    size: a4 9in;
+    margin-top: 4in;
+    margin-left: 0in;
+    margin-right: 0in;
+  }
 }
