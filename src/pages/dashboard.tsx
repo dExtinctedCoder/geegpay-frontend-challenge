@@ -16,7 +16,7 @@ function Dashboard() {
         </section>
       </div>
       <div className="flex flex-col gap-y-10 pt-6 pb-10">
-        <section className='grid grid-cols-2 sm:grid-cols-1 items-center gap-4'>
+        <section className='grid grid-cols-1 lg:grid-cols-2 sm:grid-cols-1 items-center gap-4'>
           <AnalyticsCard title="total order" value={350} percent={23.5} type="profit" icon={TOTALORDERICON} isBg />
           <AnalyticsCard title="total refund" value={270} percent={23.5} type="loss" icon={TOTALREFUNDICON} />
           <AnalyticsCard title="average sales" value={1567} percent={23.5} type="loss" icon={AVRSALESICON} />
