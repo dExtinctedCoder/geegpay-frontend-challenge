@@ -56,6 +56,7 @@ const orders = [
     name: "Corey Schleifer",
     date: "Nov 15, 2023",
     amount: "87000",
+    quantity: 1,
     status: "Paid",
     logo: COREYSCHELEIFER,
   },
@@ -187,7 +188,7 @@ function RecentOrder() {
                               <td className="border-b py-3 pl-2">Lorem Ipsum product</td>
                               <td className="border-b py-3 pl-2 text-right">${(Intl.NumberFormat('en-us').format(Number(order.amount)))}</td>
                               <td className="border-b py-3 pl-2 text-center">{order.quantity}</td>
-                              <td className="border-b py-3 pl-2 text-right">${(Intl.NumberFormat('en-us').format(Number(order.amount) * order.quantity!))}</td>
+                              <td className="border-b py-3 pl-2 text-right">${(Intl.NumberFormat('en-us').format(Number(order.amount)))}</td>
                             </tr>
                             <tr>
                               <td colSpan={7}>
@@ -203,7 +204,7 @@ function RecentOrder() {
                                                 <div className="whitespace-nowrap text-slate-400">Net total:</div>
                                               </td>
                                               <td className="border-b p-3 text-right">
-                                                <div className="whitespace-nowrap font-bold text-main">${(Intl.NumberFormat('en-us').format(Number(order.amount) * order.quantity!))}</div>
+                                                <div className="whitespace-nowrap font-bold text-main">${(Intl.NumberFormat('en-us').format(Number(order.amount)))}</div>
                                               </td>
                                             </tr>
                                             <tr>
@@ -211,7 +212,7 @@ function RecentOrder() {
                                                 <div className="whitespace-nowrap font-bold text-white">Total:</div>
                                               </td>
                                               <td className="bg-main p-3 text-right">
-                                                <div className="whitespace-nowrap font-bold text-white">${(Intl.NumberFormat('en-us').format(Number(order.amount) * order.quantity!))}</div>
+                                                <div className="whitespace-nowrap font-bold text-white">${(Intl.NumberFormat('en-us').format(Number(order.amount)))}</div>
                                               </td>
                                             </tr>
                                           </tbody>
