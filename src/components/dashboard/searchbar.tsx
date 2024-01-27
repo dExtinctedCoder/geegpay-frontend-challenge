@@ -8,8 +8,12 @@ import PROFILEIMAGE from '../../assets/images/profile.png'
 import SEARCH from '../../assets/icons/search.png'
 import { SheetTrigger, SheetContent, Sheet } from '../ui/sheet';
 import MenuSidebar from './menubar';
+import SUN from '../../assets/icons/sun.png'
+import MOON from '../../assets/icons/moon.png'
+import useDarkMode from '@/utils/hooks'
 
 function Searchbar() {
+  const [toggleDarkMode] = useDarkMode()
   const [showSearchbar, setSearchbar] = useState(false)
   const options = {
     weekday: 'long',
@@ -33,6 +37,14 @@ function Searchbar() {
           </div>
           <div>
             <img src={PROFILEIMAGE} alt="IMG-PROFILE-IMAGE" />
+          </div>
+          <div className="flex items-center gap-y-4 bg-white rounded-3xl px-0 py-0">
+            <button onClick={() => toggleDarkMode(false)} className={`w-[40px] aspect-square flex items-center justify-center rounded-full bg-[#34CAA5] dark:bg-white`}>
+              <img className={`w-[24px] height-[24px] invert-0 dark:w-[22px] dark:h-[22px] dark:invert`} width={30} height={30} src={SUN} alt="IMG-SUN" />
+            </button>
+            <button onClick={() => toggleDarkMode(true)} className={`w-[40px] aspect-square flex items-center justify-center rounded-full dark:bg-[#34CAA5] bg-white`}>
+              <img className={`dark:w-[24px] dark:height-[24px] dark:invert w-[22px] h-[22px]`} width={30} height={30} src={MOON} alt="IMG-MOON" />
+            </button>
           </div>
           <SheetTrigger asChild>
             <div onClick={() => { }}>
