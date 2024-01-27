@@ -12,7 +12,7 @@ function Dashboard() {
   return (
     <div className="px-8 grid lg:grid-cols-[3fr_2fr] gap-x-8">
       <div className="flex flex-col gap-y-10 pt-6 pb-10">
-        <section className={`hidden scale-50 lg:block rounded-2xl dark:bg-gray-800 bg-white px-1 py-4`}>
+        <section className={`hidden lg:block rounded-2xl dark:bg-gray-800 bg-white px-1 py-4`}>
           <div className="flex items-center justify-between mb-4">
             <h4 className="font-semibold text-lg">Sales Trend</h4>
             <Select>

@@ -7,14 +7,14 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Dashboard Component='index' />} />
-        <Route path="/analytics" element={<Dashboard Component='analytics' />} />
-        <Route path="/customers" element={<Dashboard Component='customers' />} />
-        <Route path="/products" element={<Dashboard Component='products' />} />
-        <Route path="/discount" element={<Dashboard Component='discount' />} />
-        <Route path="/help" element={<Dashboard Component='help' />} />
-        <Route path="/settings" element={<Dashboard Component='settings' />} />
-        <Route path="/notifications" element={<Dashboard Component='notifications' />} />
-        <Route path="/logout" element={<Dashboard Component='logout' />} />
+        <Route path="/analytics" Component={Errorpage} />
+        <Route path="/customers" Component={Errorpage} />
+        <Route path="/products" Component={Errorpage} />
+        <Route path="/discount" Component={Errorpage} />
+        <Route path="/help" Component={Errorpage} />
+        <Route path="/settings" Component={Errorpage} />
+        <Route path="/notifications" Component={Errorpage} />
+        <Route path="/logout" Component={Errorpage} />
         <Route path="*" Component={Errorpage} />
       </Routes>
     </>
