@@ -11,8 +11,8 @@ function Dashboard() {
   return (
     <div className="px-8 grid lg:grid-cols-[3fr_2fr] gap-x-8">
       <div className="flex flex-col gap-y-10 pt-6 pb-10">
-        <section className="w-full aspect-video overflow-hidden rounded-2xl">
-          <img src={CHART} alt="IMG-CHART" className="w-full h-full object-contain" />
+        <section style={{ backgroundImage: `url(${CHART})`, backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat' }} className="w-full aspect-video rounded-2xl">
+          <img src={CHART} alt="IMG-CHART" className="" />
         </section>
         <section className={`rounded-2xl dark:bg-gray-800 bg-white px-8 py-4`}>
           <RecentOrders />
