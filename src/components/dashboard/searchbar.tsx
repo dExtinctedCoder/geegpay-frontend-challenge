@@ -16,7 +16,7 @@ function Searchbar() {
     year: 'numeric',
     month: 'short',
     day: 'numeric'
-  }
+  } as const
 
   const currentDate = new Date()
   const dateFormat = currentDate.toLocaleDateString('en-us', options).split(",")
