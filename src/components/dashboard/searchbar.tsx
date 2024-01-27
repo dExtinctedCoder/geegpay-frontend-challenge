@@ -11,6 +11,7 @@ import MenuSidebar from './menubar';
 import SUN from '../../assets/icons/sun.png'
 import MOON from '../../assets/icons/moon.png'
 import useDarkMode from '@/utils/hooks'
+import LOGO from '../../assets/images/Vectorlogo.png'
 
 function Searchbar() {
   const [toggleDarkMode] = useDarkMode()
@@ -29,14 +30,14 @@ function Searchbar() {
     <Sheet>
       <header className={`z-50 bg-[#FAFAFA] border-[#E5EAEF] dark:bg-gray-900 dark:border-gray-700 sticky top-0 left-0 right-0 w-full flex items-center justify-between py-4 px-8 border-b-2`}>
         <div>
-          <h2 className="text-[28px] font-semibold">Dashboard</h2>
+          <h2 className="text-[28px] hidden lg:block font-semibold">Dashboard</h2>
+          <Link className="items-center lg:hidden nav-link w-full border-l-[8px] border-transparent flex justify-center py-3" to="/">
+            <img width={40} height={40} src={LOGO} alt="IMG-LOGO" />
+          </Link>
         </div>
         <div className="lg:hidden flex items-center gap-x-4">
           <div onClick={() => setSearchbar(!showSearchbar)} className="">
             <img src={SEARCH} alt="IMG-SEARCH-ICON" className="w-6 h-6 cursor-pointer" />
-          </div>
-          <div>
-            <img src={PROFILEIMAGE} alt="IMG-PROFILE-IMAGE" />
           </div>
           <div className="flex items-center gap-y-4 bg-white rounded-3xl px-0 py-0">
             <button onClick={() => toggleDarkMode(false)} className={`w-[40px] aspect-square flex items-center justify-center rounded-full bg-[#34CAA5] dark:bg-white`}>

@@ -21,61 +21,61 @@ const MenuSidebar = () => {
       </SheetHeader>
       <nav className="w-full flex flex-col items-start justify-start">
         <SheetClose asChild>
-          <NavLink className="nav-link-mobile flex gap-x-4 text-2xl font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/">
+          <NavLink className="nav-link-mobile flex gap-x-4 text-lg font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/">
             <img className={`dark:invert invert-0`} width={32} height={32} src={DASHBOARD} alt="IMG-DASHBOARD" />
             <p className="text-gray-600 dark:text-gray-300">Dashboard</p>
           </NavLink>
         </SheetClose>
 
         <SheetClose asChild>
-          <NavLink className="nav-link-mobile flex gap-x-4 text-2xl font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/analytics">
+          <NavLink className="nav-link-mobile flex gap-x-4 text-lg font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/analytics">
             <img width={32} height={32} src={ANALYTICS} alt="IMG-ANALYTICS" />
             <p className="text-gray-600 dark:text-gray-300">Analytics</p>
           </NavLink>
         </SheetClose>
 
         <SheetClose asChild>
-          <NavLink className="nav-link-mobile flex gap-x-4 text-2xl font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/customers">
+          <NavLink className="nav-link-mobile flex gap-x-4 text-lg font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/customers">
             <img width={32} height={32} src={CUSTOMER} alt="IMG-CUSTOMER" />
             <p className="text-gray-600 dark:text-gray-300">Customers</p>
           </NavLink>
         </SheetClose>
 
         <SheetClose asChild>
-          <NavLink className="nav-link-mobile flex gap-x-4 text-2xl font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/products">
+          <NavLink className="nav-link-mobile flex gap-x-4 text-lg font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/products">
             <img width={32} height={32} src={PRODUCTS} alt="IMG-PRODUCTS" />
             <p className="text-gray-600 dark:text-gray-300">Products</p>
           </NavLink>
         </SheetClose>
 
         <SheetClose asChild>
-          <NavLink className="nav-link-mobile flex gap-x-4 text-2xl font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/discount">
+          <NavLink className="nav-link-mobile flex gap-x-4 text-lg font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/discount">
             <img width={32} height={32} src={DISCOUNT} alt="IMG-DISCOUNT" />
             <p className="text-gray-600 dark:text-gray-300">Discount</p>
           </NavLink>
         </SheetClose>
 
         <SheetClose asChild>
-          <NavLink className="nav-link-mobile flex gap-x-4 text-2xl font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/help">
+          <NavLink className="nav-link-mobile flex gap-x-4 text-lg font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/help">
             <img width={32} height={32} src={INFO} alt="IMG-HELP" />
-            <p className="text-gray-600 dark:text-gray-300">Help & Support</p>
+            <p className="text-gray-600 dark:text-gray-300">Help</p>
           </NavLink>
         </SheetClose>
       </nav>
       <div className="w-full flex flex-col  gap-y-2">
-        <div className="w-full flex gap-x-4 text-2xl font-semibold border-l-[8px] border-transparent px-8 py-5">
+        <div className="w-full flex gap-x-4 text-lg font-semibold border-l-[8px] border-transparent px-8 py-5">
           <img width={32} height={32} src={BACK} alt="IMG-BACK" className="cursor-pointer" />
           <p className="text-gray-600 dark:text-gray-300">Back</p>
         </div>
         <SheetClose asChild>
-          <NavLink className="nav-link-mobile flex gap-x-4 text-2xl font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/settings">
+          <NavLink className="nav-link-mobile flex gap-x-4 text-lg font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/settings">
             <img width={32} height={32} src={SETTINGS} alt="IMG-SETTINGS" />
             <p className="text-gray-600 dark:text-gray-300">Settings</p>
           </NavLink>
         </SheetClose>
 
         <SheetClose asChild>
-          <NavLink className="nav-link-mobile flex gap-x-4 text-2xl font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/logout">
+          <NavLink className="nav-link-mobile flex gap-x-4 text-lg font-semibold hover:bg-green-100 w-full border-l-[8px] border-transparent px-8 py-5" to="/logout">
             <img width={32} height={32} src={LOGOUT} alt="IMG-LOGOUT" />
             <p className="text-gray-600 dark:text-gray-300">Logout</p>
           </NavLink>
