@@ -18,7 +18,7 @@
     display: none;
   }
   .small-scroll::-webkit-scrollbar {
-    @apply block w-[5px] bg-gray-200;
+    @apply block w-[3px] bg-gray-200;
   }
   .small-scroll::-webkit-scrollbar-thumb {
     @apply bg-gray-300 rounded-3xl;
