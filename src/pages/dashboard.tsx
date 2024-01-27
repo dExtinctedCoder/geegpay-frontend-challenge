@@ -6,6 +6,7 @@ import TOTALREFUNDICON from '../assets/icons/3d-rotate.png'
 import TOTALINCOMEICON from '../assets/icons/coin.png'
 import AVRSALESICON from '../assets/icons/shopping-cart.png'
 import { Chart } from '@/components/dashboard/chart'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '../components/ui/select'
 
 function Dashboard() {
   return (
@@ -14,10 +15,23 @@ function Dashboard() {
         <section className={`rounded-2xl dark:bg-gray-800 bg-white px-1 py-4`}>
           <div className="flex items-center justify-between mb-4">
             <h4 className="font-semibold text-lg">Sales Trend</h4>
-            <div className="text-lg flex items-center gap-x-2 font-medium hover:underline hover:text-green-500">
-              Sort: by
-              <div>weekly</div>
-            </div>
+            <Select>
+              <div className="text-base flex items-center gap-x-2 font-medium">
+                <span className="w-max block">Sort: by</span>
+                <SelectTrigger>
+                  <SelectValue placeholder="weekly" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>sort by</SelectLabel>
+                    <SelectItem value="daily">Daily</SelectItem>
+                    <SelectItem value="weekly">Weekly</SelectItem>
+                    <SelectItem value="monthly">Monthly</SelectItem>
+                    <SelectItem value="yearly">Yearly</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </div>
+            </Select>
           </div>
           <Chart />
         </section>
