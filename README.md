@@ -76,7 +76,7 @@ To run the dashboard locally, make sure you have [Node.js](https://nodejs.org/) 
 
 ## Screenshots
 
-<!-- Insert screenshots of key sections or features of dashboard here. -->
+![Dashboard preview!](/public/dashboard.png "A screenshot of the final Dashboard ")
 
 ## Credits
 
