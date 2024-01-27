@@ -1,20 +1,11 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Progress } from "@/components/ui/progress"
 
 export function TopPlatform() {
   const topPlatforms = {
-    bazaar: 0, aisle: 0, troop: 0, store: 0
+    aisle: 45.2, bazaar: 54.2, store: 27.02, troop: 27.02
   }
-  const [progress, setProgress] = useState(topPlatforms)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setProgress((progress) => {
-      return { ...progress, aisle: 45.2, bazaar: 54.2, store: 27.02, troop: 27.02 }
-    }), 500)
-    return () => clearTimeout(timer)
-  }, [])
 
   return (
     <aside className='bg-white dark:bg-gray-800 text-[#22242C] dark:text-gray-100 px-8 py-4 rounded-2xl'>
@@ -25,22 +16,22 @@ export function TopPlatform() {
       <div className='flex flex-col gap-y-4'>
         <div className='flex flex-col gap-y-2'>
           <p className='font-semibold text-lg capitalize'>Book Bazaar</p>
-          <Progress color="bg-[#6160DC]" value={progress.bazaar} className="w-full h-3" />
+          <Progress color="bg-[#6160DC]" value={topPlatforms.bazaar} className="w-full h-3" />
           <p className='flex items-center justify-between text-[#525252] dark:text-gray-500 text-lg'>${(2500000).toLocaleString()}<span>+15%</span></p>
         </div>
         <div className='flex flex-col gap-y-4'>
           <p className='font-semibold text-lg capitalize'>Artisan Aisle</p>
-          <Progress color="bg-[#54C5EB]" value={progress.aisle} className="w-full h-3" />
+          <Progress color="bg-[#54C5EB]" value={topPlatforms.aisle} className="w-full h-3" />
           <p className='flex items-center justify-between text-[#525252] dark:text-gray-500 text-lg'>${(1800000).toLocaleString()}<span>+15%</span></p>
         </div>
         <div className='flex flex-col gap-y-4'>
           <p className='font-semibold text-lg capitalize'>Toy Troop</p>
-          <Progress color="bg-[#FFB74A]" value={progress.troop} className="w-full h-3" />
+          <Progress color="bg-[#FFB74A]" value={topPlatforms.troop} className="w-full h-3" />
           <p className='flex items-center justify-between text-[#525252] dark:text-gray-500 text-lg'>${(1200000).toLocaleString()}<span>+15%</span></p>
         </div>
         <div>
           <p className='font-semibold text-lg capitalize'>XStore</p>
-          <Progress color="bg-[#FF4A55]" value={progress.store} className="w-full h-3" />
+          <Progress color="bg-[#FF4A55]" value={topPlatforms.store} className="w-full h-3" />
           <p className='flex items-center justify-between text-[#525252] dark:text-gray-500 text-lg'>${(850000).toLocaleString()}<span>+15%</span></p>
         </div>
       </div>
