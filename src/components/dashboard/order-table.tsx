@@ -57,7 +57,7 @@ const orders = [
   },
 ]
 
-function RecentOrder({ theme }: { theme?: string }) {
+function RecentOrder() {
   const contentRef = useRef({} as HTMLDivElement)
 
   const handleInvoiceClick = (order: typeof orders[0]) => {
@@ -67,7 +67,17 @@ function RecentOrder({ theme }: { theme?: string }) {
       return alert(`Could not retreive invoice details (order payment status failed)`)
     }
   }
-
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
+  }
+  const formatDate = (date: string) => {
+    const currentDate = new Date(date)
+    const dateFormat = currentDate.toLocaleDateString('en-us', options).split(",")[1]
+    return dateFormat
+  }
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
@@ -87,12 +97,12 @@ function RecentOrder({ theme }: { theme?: string }) {
         </TableHeader>
         <TableBody>
           {orders.map((order) => (
-            <TableRow className={`dark:text-gray-100 text-[#0D062D] hover:bg-inherit`} key={order.name + order.date}>
-              <TableCell className={`px-0 dark:text-gray-200 text-[#3A3F51] flex items-center`}><img src={order.logo} alt={`${order.name} PROFILE-IMAGE`} width={24} height={24} className="mr-1" /> {order.name}</TableCell>
-              <TableCell className={`font-medium dark:text-gray-100 text-[#737373]`}>{order.date}</TableCell>
+            <TableRow className={`dark:text-gray-100 sm:text-sm text-[#0D062D] hover:bg-inherit`} key={order.name + order.date}>
+              <TableCell className={`px-0 dark:text-gray-200 text-[#3A3F51] flex items-center`}><img src={order.logo} alt={`${order.name} PROFILE-IMAGE`} width={24} height={24} className="mr-1 hidden lg:block" /> {order.name}</TableCell>
+              <TableCell className={`font-medium dark:text-gray-100 text-[#737373]`}><span className="hidden lg:inline">{order.date}</span><span className="lg:hidden">{`${formatDate(order.date)}`}</span></TableCell>
               <TableCell className={``}>${(Intl.NumberFormat('en-us').format(order.amount))}</TableCell>
               <TableCell className={`${order.status.toLowerCase() === 'paid' ? 'text-[#34CAA5]' : 'text-[#ED544E]'} `}>{order.status}</TableCell>
-              <TableCell className="text-right px-0 text-sm"><button onClick={() => handleInvoiceClick(order)} className="flex items-center justify-end w-full gap-x-1"><img src={VIEW} alt="IMG-DOWNLOAD" className={`dark:invert invert-0`} />View</button></TableCell>
+              <TableCell className="text-right px-0 text-sm"><button onClick={() => handleInvoiceClick(order)} className="flex items-center justify-end w-full gap-x-1"><img src={VIEW} alt="IMG-DOWNLOAD" className={`dark:invert invert-0`} /><span className="hidden lg:inline">View</span></button></TableCell>
             </TableRow>
           ))}
         </TableBody>

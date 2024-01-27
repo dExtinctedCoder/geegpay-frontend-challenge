@@ -1,11 +1,16 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { HiOutlineMenuAlt3 } from 'react-icons/hi'
+import { FaAngleDown } from "react-icons/fa";
 import CALENDAR from '../../assets/icons/calendar.png'
 import NOTIFICATION from '../../assets/icons/solar_bell-outline.png'
 import PROFILEIMAGE from '../../assets/images/profile.png'
 import SEARCH from '../../assets/icons/search.png'
-import { FaAngleDown } from "react-icons/fa";
+import { SheetTrigger, SheetContent, Sheet } from '../ui/sheet';
+import MenuSidebar from './menubar';
 
 function Searchbar() {
+  const [showSearchbar, setSearchbar] = useState(false)
   const options = {
     weekday: 'long',
     year: 'numeric',
@@ -17,31 +22,55 @@ function Searchbar() {
   const dateFormat = currentDate.toLocaleDateString('en-us', options).split(",")
 
   return (
-    <header className={`z-50 bg-[#FAFAFA] border-[#E5EAEF] dark:bg-gray-900 dark:border-gray-700 sticky top-0 w-full flex items-center justify-between py-4 px-8 border-b-2`}>
-      <div>
-        <h2 className="text-[28px] font-semibold">Dashboard</h2>
-      </div>
-      <div className="basis-[30%]">
-        <input style={{ backgroundImage: `url(${SEARCH})`, backgroundRepeat: 'no-repeat', backgroundPosition: '10px 50%', backgroundSize: '16px' }} type="search" name="search" id="search" placeholder="Search..." className="rounded-3xl py-2 pl-10 pr-4 border-2 border-gray-300 bg-inherit w-full focus:border-0" />
-      </div>
-      <div className="flex items-center gap-x-4">
-        <div className="flex items-center">
-          <img src={CALENDAR} alt="IMG-CALENDAR" className={`dark:invert : 'invert-0 mr-2`} />
-          <p className="font-['Inter'] font-medium">{dateFormat[0]} {dateFormat[1]}, {dateFormat[2]}</p>
+    <Sheet>
+      <header className={`z-50 bg-[#FAFAFA] border-[#E5EAEF] dark:bg-gray-900 dark:border-gray-700 sticky top-0 left-0 right-0 w-full flex items-center justify-between py-4 px-8 border-b-2`}>
+        <div>
+          <h2 className="text-[28px] font-semibold">Dashboard</h2>
         </div>
-        <Link to="/notifications" className="w-fulll block">
-          <img className={`dark:invert invert-0 rounded-full border border-gray-300 p-1 mx-3`} src={NOTIFICATION} alt="IMG-NOTIFICATION" />
-        </Link>
-        <button className="flex items-center border border-gray-300 rounded-full px-2 py-1">
-          <img src={PROFILEIMAGE} alt="IMG-PROFILE-IMAGE" className="mr-2" />
-          <div className="font-['Inter'] text-left">
-            <p>Justin Bergson</p>
-            <p className="text-sm text-[#787486]">justin@gmail.com</p>
+        <div className="lg:hidden flex items-center gap-x-4">
+          <div onClick={() => setSearchbar(!showSearchbar)} className="">
+            <img src={SEARCH} alt="IMG-SEARCH-ICON" className="w-6 h-6 cursor-pointer" />
           </div>
-          <FaAngleDown fontSize={24} className="ml-2 text-[#b4b2bb] dark:text-[#0D062D]" />
-        </button>
-      </div>
-    </header>
+          <div>
+            <img src={PROFILEIMAGE} alt="IMG-PROFILE-IMAGE" />
+          </div>
+          <SheetTrigger asChild>
+            <div onClick={() => { }}>
+              <HiOutlineMenuAlt3 fontSize={32} className='cursor-pointer ml-2' />
+            </div>
+          </SheetTrigger>
+        </div>
+        <div className="basis-[25%] hidden lg:block">
+          <input style={{ backgroundImage: `url(${SEARCH})`, backgroundRepeat: 'no-repeat', backgroundPosition: '10px 50%', backgroundSize: '16px' }} type="search" name="search" id="search" placeholder="Search..." className="rounded-3xl py-2 pl-10 pr-4 border-2 border-gray-300 bg-inherit w-full focus:border-0" />
+        </div>
+        <div className="hidden lg:flex items-center gap-x-4">
+          <div className="flex items-center">
+            <img src={CALENDAR} alt="IMG-CALENDAR" className={`dark:invert : 'invert-0 mr-2`} />
+            <p className="font-['Inter'] font-medium">{dateFormat[0]} {dateFormat[1]}, {dateFormat[2]}</p>
+          </div>
+          <Link to="/notifications" className="w-fulll block">
+            <img className={`dark:invert invert-0 rounded-full border border-gray-300 p-1 mx-3`} src={NOTIFICATION} alt="IMG-NOTIFICATION" />
+          </Link>
+          <button className="flex items-center border border-gray-300 rounded-full px-2 py-1">
+            <img src={PROFILEIMAGE} alt="IMG-PROFILE-IMAGE" className="mr-2" />
+            <div className="font-['Inter'] text-left">
+              <p>Justin Bergson</p>
+              <p className="text-sm text-[#787486]">justin@gmail.com</p>
+            </div>
+            <FaAngleDown fontSize={24} className="ml-2 text-[#b4b2bb] dark:text-[#0D062D]" />
+          </button>
+        </div>
+      </header>
+      {
+        showSearchbar ?
+          <div className="lg:hidden border-b border-gray-300">
+            <input style={{ backgroundImage: `url(${SEARCH})`, backgroundRepeat: 'no-repeat', backgroundPosition: '16px 50%', backgroundSize: '20px' }} type="search" name="search" id="search" placeholder="Search..." className="py-3 pl-12 pr-4 bg-inherit w-full focus:outline-0" />
+          </div> : ""
+      }
+      <SheetContent className='px-0 overflow-y-scroll no-scroll'>
+        <MenuSidebar />
+      </SheetContent>
+    </Sheet>
   )
 }
 

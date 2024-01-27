@@ -26,6 +26,9 @@
   .nav-link.active {
     @apply border-l-[#34CAA5];
   }
+  .nav-link-mobile.active {
+    @apply border-l-[#34CAA5];
+  }
   .grayscale {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);

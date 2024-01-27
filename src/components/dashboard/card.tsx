@@ -15,7 +15,7 @@ interface PropsType {
 export function AnalyticsCard({ title, value, icon, percent, type, isBg = false }: PropsType) {
   return (
     <div className={`flex flex-col gap-y-2 p-4 rounded-2xl dark:bg-gray-800 bg-white shadow-sm`}>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center lg:gap-x-0 justify-between'>
         {
           !isBg ?
             (
@@ -40,7 +40,7 @@ export function AnalyticsCard({ title, value, icon, percent, type, isBg = false 
       </div>
       <h4 className='text-[#898989] font-medium capitalize text-lg'>{title}</h4>
       <p className={`font-semibold text-2xl dark:text-gray-200 text-[#3A3F51]`}>{value}</p>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center gap-x-4 lg:gap-x-0 lg:justify-between'>
         <div className={`flex items-center text-xs font-medium rounded-3xl px-2 py-1 ${type === 'profit' ? 'text-[#34caa5] bg-[rgb(52,202,165,12%)]' : 'text-[#ED544E] bg-[rgb(237,84,78,12%)]'}`}>
           <span className='mr-1'>
             {
