@@ -5,12 +5,15 @@ import TOTALORDERICON from '../assets/icons/box-tick.png'
 import TOTALREFUNDICON from '../assets/icons/3d-rotate.png'
 import TOTALINCOMEICON from '../assets/icons/coin.png'
 import AVRSALESICON from '../assets/icons/shopping-cart.png'
+import CHART from '../assets/images/chart.png'
 
 function Dashboard() {
   return (
     <div className="px-8 grid lg:grid-cols-[3fr_2fr] gap-x-8">
       <div className="flex flex-col gap-y-10 pt-6 pb-10">
-        <section className="w-full aspect-video bg-gray-300 rounded-2xl"></section>
+        <section className="w-full aspect-video overflow-hidden rounded-2xl">
+          <img src={CHART} alt="IMG-CHART" className="w-full h-full object-contain" />
+        </section>
         <section className={`rounded-2xl dark:bg-gray-800 bg-white px-8 py-4`}>
           <RecentOrders />
         </section>
