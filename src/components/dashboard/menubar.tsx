@@ -1,5 +1,5 @@
-import { SheetTitle, SheetClose, SheetTrigger, SheetContent, SheetDescription, SheetHeader, SheetFooter, Sheet } from '../ui/sheet';
-import { Link, NavLink } from 'react-router-dom';
+import { SheetClose, SheetHeader } from '../ui/sheet';
+import { NavLink } from 'react-router-dom';
 import BACK from '../../assets/icons/arrow-right.png'
 import SETTINGS from '../../assets/icons/setting-2.png'
 import LOGOUT from '../../assets/icons/logout.png'
